@@ -1,7 +1,7 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from urllib.parse import urlparse
 
-with open("sample1-2.html", mode="r", encoding="utf-8") as file:
+with open("a1-3.html", mode="r", encoding="utf-8") as file:
     template = file.read()
 
 routes = []
@@ -26,19 +26,19 @@ class MyServerHandler(BaseHTTPRequestHandler):
     def id1(self):
         self.send_response(200)
         self.end_headers()
-        html = template.format(title="Event Information", message="Event 1: Event A - Date: January 15, 2025")
+        html = template.format(title="過去のイベント", message="高校卒業: 日付: January 15, 2025", color="black")
         self.wfile.write(html.encode("utf-8"))
 
     def id2(self):
         self.send_response(200)
         self.end_headers()
-        html = template.format(title="Event Information", message="Event 2: Event B - Date: March 20, 2026")
+        html = template.format(title="過去のイベント", message="大学入学: 日付: March 20, 2026", color="black")
         self.wfile.write(html.encode("utf-8"))
 
     def id3(self):
         self.send_response(200)
         self.end_headers()
-        html = template.format(title="Event Information", message="Event 3: Event C - Date: December 5, 2026")
+        html = template.format(title="未来のイベント", message="大学卒業:  日付: December 5, 2026", color="red")
         self.wfile.write(html.encode("utf-8"))
 
     def error(self):
