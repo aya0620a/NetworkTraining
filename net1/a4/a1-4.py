@@ -1,49 +1,46 @@
-import datetime
 from cgi import FieldStorage
 from http.server import BaseHTTPRequestHandler, HTTPServer
+from urllib.parse import parse_qs, urlparse
 
-with open("sample1-3.html", mode="r", encoding="utf-8") as file:
+with open("a1-4.html", mode="r", encoding="utf-8") as file:
     input = file.read()
     # 入力フォームとなるHTMLファイルを読み込み，inputに代入する．
-with open("sample1-2.html", mode="r", encoding="utf-8") as file:
+with open("a1-3.html", mode="r", encoding="utf-8") as file:
     output = file.read()
     # 出力テンプレートとなるHTMLファイルを読み込み，outputに代入する．
+
+position = ["過去のイベント", "過去のイベント", "未来のイベント"]
+name = ["高校卒業", "大学入学", "大学卒業"]
+time = ["2021/3/9", "2021/4/1", "2026/3/31"]
+place = ["高校", "大学", "大学"]
+color = ["black", "black", "red"]
 
 
 class MyServerHandler(BaseHTTPRequestHandler):
     def do_GET(self):
-        # GETメソッド（通常）でのアクセスはここで処理する．
         self.send_response(200)
         self.end_headers()
         html = input.format(title="入力画面")
         self.wfile.write(html.encode("utf-8"))
         # 入力フォームを表示する．
+        
+        _url = urlparse(self.path)
+        query = parse_qs(_url.query)
+        # URLからクエリパラメータを取り出す．
+
+        if "id" in query:
+            id = int(query["id"][0])
+            # idの値を取り出す．
+            if 1 <= id <= 3:
+                html = output.format(title=position[id - 1], message=name[id - 1] + ": 日付: " + time[id - 1], color=color[id - 1])
+                self.wfile.write(html.encode("utf-8"))
+            else:
+                self.error()
+                # idの値の範囲が1以上3以下でない場合は，そのことを示すメッセージを表示する．
+        else:
+            self.error()
+            # idが指定されていない場合は，そのことを示すメッセージを表示する．
+
         return
-
-    def do_POST(self):
-        # POSTメソッドでのアクセスはここで処理する．
-        form = FieldStorage(fp=self.rfile, headers=self.headers, environ={"REQUEST_METHOD": "POST"})
-        # 入力フォームの内容を読み込む．
-        name = form["name"].value
-        # 入力フォームにある名前(name)のデータを取り出す．
-        try:
-            age = int(form["age"].value)
-            # 入力フォームにある年齢(age)のデータを取り出し，整数化する．
-
-            dt = datetime.datetime.now()
-            # 現在の日時を取得する．
-
-            message = "{}さんが生まれたのは{}年か{}年．".format(name, dt.year - age - 1, dt.year - age)
-            # 名前と年齢から計算した生まれ年をメッセージにする．
-        except ValueError:
-            message = "年齢が正しくありません．"
-            # 入力フォームにある年齢が正しくない場合は，その旨をメッセージにする．
-
-        self.send_response(200)
-        self.end_headers()
-        html = output.format(title="出力画面", message=message)
-        self.wfile.write(html.encode("utf-8"))
-        return
-
-
+    
 HTTPServer(("", 8000), MyServerHandler).serve_forever()

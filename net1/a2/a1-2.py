@@ -1,7 +1,7 @@
 import datetime
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
-with open("sample1-2.html", mode="r", encoding="utf-8") as file:
+with open("a1-2.html", mode="r", encoding="utf-8") as file:
     template = file.read()
     # sample1-2.htmlを読み込みモードで開く．文字コードはutf-8に指定する．HTMLファイルの中身をtemplateに代入する．ファイルをwithでopenすると，自動的にcloseする．
 
@@ -23,7 +23,7 @@ class MyServerHandler(BaseHTTPRequestHandler):
         else:
             color = "blue"
             
-        html = template.format(title="表示テスト", message=message, color=color)
+        html = template.format(title="現在時刻", message=message, color=color)
         # HTMLファイルの内容を変更する．{title}と{message}が置換される．
         self.wfile.write(html.encode("utf-8"))
         # HTMLファイルを文字コートutf-8で書き出す．
