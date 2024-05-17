@@ -1,10 +1,10 @@
 from cgi import FieldStorage
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
-with open("a1_4in.html", mode="r", encoding="utf-8") as file:
+with open("a1-4in.html", mode="r", encoding="utf-8") as file:
     input = file.read()
     # 入力フォームとなるHTMLファイルを読み込み，inputに代入する．
-with open("a1_4out.html", mode="r", encoding="utf-8") as file:
+with open("a1-4out.html", mode="r", encoding="utf-8") as file:
     output = file.read()
     # 出力テンプレートとなるHTMLファイルを読み込み，outputに代入する．
 

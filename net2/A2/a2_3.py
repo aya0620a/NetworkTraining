@@ -16,7 +16,7 @@ def page(num):
     except Exception:
         # numの値が正しくない場合は例外が生じる．
         message1 = "ページは見つかりませんでした"
-    return render_template("a2_3.html", title="表示テスト", message1=message1, message2=message2)
+    return render_template("a2-3.html", title="表示テスト", message1=message1, message2=message2)
 
 
 if __name__ == "__main__":

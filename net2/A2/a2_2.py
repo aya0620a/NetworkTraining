@@ -15,7 +15,7 @@ def template():
         
     message = "現在時刻は{a}時{b}分{c}秒です．".format(a=dt.hour, b=dt.minute, c=dt.second)
     
-    return render_template("a2_2.html", title="現在時刻", message=message, color=color)
+    return render_template("a2-2.html", title="現在時刻", message=message, color=color)
     # sample2-2.htmlの{{title}}と{{message}}の部分をそれぞれ置換する．
 
 

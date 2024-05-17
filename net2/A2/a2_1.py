@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route("/")
 # ルート"/"にアクセスされた場合にsampleが呼び出されることを指定する．メソッドの名前は任意である．
 def sample():
-    return render_template("a2_1.html")
+    return render_template("a2-1.html")
     # templateフォルダに入っているsample2-1.htmlを表示する．
 
 

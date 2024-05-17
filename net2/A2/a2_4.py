@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route("/", methods=["GET"])
 # GETメソッドでのアクセスは以下が実行される．
 def input():
-    return render_template("a2_4in.html", title="フォームの利用")
+    return render_template("a2-4in.html", title="フォームの利用")
 
 
 @app.route("/", methods=["POST"])
@@ -27,7 +27,7 @@ def output():
                     
     except Exception:
         message = "idが正しくありません."
-    return render_template("a2_4out.html", title="イベント情報", message=message)
+    return render_template("a2-4out.html", title="イベント情報", message=message)
 
 
 if __name__ == "__main__":

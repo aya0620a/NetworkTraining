@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>現在時刻</title>
+</head>
+<body>
+    <h1>{{title}}</h1>
+    {% if second%2 == 0 %}
+        <p>
+            <font color="red">
+                現在時刻は{{hour}}時{{minute}}分{{second}}秒です。
+            </font>
+        </p>
+    {% else %}
+        <p>
+            <font color="blue">
+                現在時刻は{{hour}}時{{minute}}分{{second}}秒です。
+            </font>
+        </p>
+    {% endif %}
+</body>
+
+</html>
