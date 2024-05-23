@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <h1>{{title}}</h1>
+    <h2 style="padding-top: 30px">{{message}}</h2>
+    <form action="/" method="post">
+        <div style="display: flex; align-items: center;">
+            <h2>x:</h2>
+            <input type="text" name="y" value={{y}}>
+        </div><br>
+        <input type="submit" name="add" value="加算">
+        <input type="submit" name="sub" value="減算">
+        <input type="submit" name="mul" value="乗算">
+        <input type="submit" name="div" value="除算">
+</body>
+
+</html>
