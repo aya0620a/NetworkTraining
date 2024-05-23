@@ -11,18 +11,16 @@ table = [
     ["大学卒業", "2026/3/31", "大学"],
 ]
 
-@app.template_filter("dayfilter")
+@app.template_filter("remaining_days")
 def daycount_filter(date_str):
     event_date = datetime.strptime(date_str, "%Y/%m/%d")
     today = datetime.today()
-    if event_date < today:
-        remaining_days = (-1) * (today-event_date).days
-    else:
-        remaining_days = (event_date - today).days
+    remaining_days = (event_date - today).days
     
     return remaining_days
 
-app.jinja_env.filters["dayfilter"] = daycount_filter
+#テンプレートフィルタday
+app.jinja_env.filters["remaining_days"] = daycount_filter
 
 
 

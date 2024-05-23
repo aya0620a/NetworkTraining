@@ -23,7 +23,7 @@
             {% for item in tuple %}
             <td>{{item}}</td>
             {% endfor %}
-            <td>{{tuple[1]|dayfilter}}日</td>
+            <td>{{tuple[1]|remaining_days}}日</td>
         </tr>
         {% endfor %}
     </table>
