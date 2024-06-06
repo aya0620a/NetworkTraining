@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <h1>{{title}}</h1>
+    <table border="1">
+        <tr>
+            {% for item in schema %}
+            <th>{{item}}</th>
+            {% endfor %}
+        </tr>
+        {% for tup<!DOCTYPE html>
+            <html>
+            <head>
+                <title>イベント一覧</title>
+            </head>
+            <body>
+                <h1>イベント一覧</h1>
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>イベント名</th>
+                        <th>イベント日</th>
+                        <th>都市</th>
+                    </tr>
+                    {% for event in events %}
+                    <tr>
+                        <td>{{ event[0] }}</td>
+                        <td>{{ event[1] }}</td>
+                        <td>{{ event[2] }}</td>
+                        <td>{{ event[3] }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </body>
+            </html>le in table %}
+        <tr>
+            {% for item in tuple %}
+            <td>{{item}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>

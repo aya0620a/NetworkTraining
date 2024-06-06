@@ -64,6 +64,7 @@ def calc():
     message = "f(x) = " + str(count)
             
     response = make_response(render_template("a4-2.html", title="セッションの利用", message=message, count=count))
+    
     return response
 
 

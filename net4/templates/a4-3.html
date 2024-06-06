@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <h1>{{title}}</h1>
+    <table border="1">
+        <tr>
+            {% for item in schema[:-1] %}
+            <th>{{item}}</th>
+            {% endfor %}
+        </tr>
+        {% for tuple in table %}
+        <tr style="background-color:{{'gray' if tuple[2] else 'pink'}}">
+            {% for item in tuple[:-1] %}
+            <td>{{item}}</td>
+            {% endfor %}
+        {% endfor %}
+
+    </table>
+</body>
+
+</html>
