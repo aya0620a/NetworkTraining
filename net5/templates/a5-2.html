@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <h1>{{title}}</h1>
+    <h2>All</h2>
+    <table border="1">
+        <tr>
+            {% for item in schema %}
+            <th>{{item}}</th>
+            {% endfor %}
+        </tr>
+        {% for tuple in table_all %}
+        <tr>
+            {% for item in tuple %}
+            <td>
+                {% if tuple[2] < now%}
+                <font color="red">{{item}}</font>
+                {% else %}
+                {{item}}
+                {% endif %}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>Festival</h2>
+    <table border="1">
+        <tr>
+            {% for item in schema %}
+            <th>{{item}}</th>
+            {% endfor %}
+        </tr>
+        {% for tuple in table_festival %}
+        <tr>
+            {% for item in tuple %}
+            <td>
+                {% if tuple[2] < now%}
+                <font color="red">{{item}}</font>
+                {% else %}
+                {{item}}
+                {% endif %}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>Future</h2>
+    <table border="1">
+        <tr>
+            {% for item in schema %}
+            <th>{{item}}</th>
+            {% endfor %}
+        </tr>
+        {% for tuple in table_future %}
+        <tr>
+            {% for item in tuple %}
+            <td>
+                {% if tuple[2] < now%}
+                <font color="red">{{item}}</font>
+                {% else %}
+                {{item}}
+                {% endif %}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>original</h2>
+    <table border="1">
+        <tr>
+            {% for item in schema %}
+            <th>{{item}}</th>
+            {% endfor %}
+        </tr>
+        {% for tuple in table_original %}
+        <tr>
+            {% for item in tuple %}
+            <td>
+                {% if tuple[2] < now%}
+                <font color="red">{{item}}</font>
+                {% else %}
+                {{item}}
+                {% endif %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>

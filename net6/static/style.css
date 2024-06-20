@@ -1,0 +1,41 @@
+body {
+    margin: 10px;
+    background-color: aliceblue;
+}
+
+h1 {
+    color: blue;
+    font-size: 50pt;
+    margin: 0px;
+    text-align: center;
+    margin-top: 10%;
+}
+
+p {
+    font-size: 14pt;
+}
+
+div.footer {
+    text-align: right;
+    border-bottom: 1px solid blue;
+    color: blue;
+    margin: 50px 0px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    height: 50%;
+    margin: 5% auto;
+    border: 10px solid black;
+}
+
+tr {
+    background-color: lightblue;
+    text-align: center;
+}
+
+td {
+    border: 1px solid black;
+    padding: 3%;
+}
